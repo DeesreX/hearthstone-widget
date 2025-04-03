@@ -4,7 +4,6 @@ body {
   margin: 0;
   font-family: 'Uncial Antiqua', cursive;
   /* Using a realistic wood texture; adjust the URL if needed */
-  background: url('https://i.imgur.com/pbLwYAz.png') center/cover no-repeat;
   color: #f0c75e;
   padding: 20px;
 }
