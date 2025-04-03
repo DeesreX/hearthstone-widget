@@ -1,6 +1,6 @@
 window.widgetData = {
-    rating: 6350,
-    ratingGoal: 7000,
+    rating: 4194,
+    ratingGoal: 5000,
     followers: 13,
     followerGoal: 20
   };
