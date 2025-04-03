@@ -1,30 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stream Widget</title>
+  <title>Hearthstone Stream Widget</title>
   <link rel="stylesheet" href="style.css" />
   <script src="data.js"></script>
 </head>
 <body>
   <div class="widget">
     <div class="block">
-      <span>🧙 Hearthstone Rating:</span>
-      <div class="progress">
-        <div id="ratingBar" class="bar"></div>
-      </div>
+      <span>🧙 Hearthstone Rating</span>
+      <div class="progress"><div id="ratingBar" class="bar"></div></div>
       <span id="ratingText"></span>
     </div>
     <div class="block">
-      <span>👥 Twitch Followers:</span>
-      <div class="progress">
-        <div id="followerBar" class="bar"></div>
-      </div>
+      <span>👥 Twitch Followers</span>
+      <div class="progress"><div id="followerBar" class="bar"></div></div>
       <span id="followerText"></span>
     </div>
   </div>
 
+  <audio id="loadSound" src="mana-shimmer.mp3" preload="auto"></audio>
   <script>
     const {
       rating,
@@ -38,6 +36,10 @@
 
     document.getElementById("ratingText").textContent = `${rating} / ${ratingGoal}`;
     document.getElementById("followerText").textContent = `${followers} / ${followerGoal}`;
+
+    const audio = document.getElementById("loadSound");
+    audio.volume = 0.4;
+    audio.play();
   </script>
 </body>
 </html>

@@ -1,33 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background: transparent;
-    color: white;
+  margin: 0;
+  font-family: 'Uncial Antiqua', cursive;
+  /* Using a realistic wood texture; adjust the URL if needed */
+  background: url('https://i.imgur.com/pbLwYAz.png') center/cover no-repeat;
+  color: #f0c75e;
+  padding: 20px;
+}
+
+/* Widget container with a static, carved wood look and a one-time fade-in */
+.widget {
+  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+  border: 4px solid #8b5a2b;
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 0 20px #1f4e79;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Inner shadow to simulate a carved wood effect */
+.widget::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+/* Block headings styled for clarity */
+.block span {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Vertical spacing for each block */
+.block {
+  margin-bottom: 30px;
+}
+
+/* Progress container with a subtle texture overlay */
+.progress {
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 24px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: inset 0 0 10px #00ffff;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+}
+
+/* Glowy, mana-themed progress bar with pulse glow and a shimmering highlight */
+.bar {
+  height: 100%;
+  background: linear-gradient(to right, #00ffff, #1f4e79);
+  width: 0;
+  transition: width 0.6s ease;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 0 10px #00ffff;
+  animation: pulseGlow 2s infinite;
+}
+
+/* Shimmer effect overlay on the progress bar */
+.bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+/* Fade-in animation for the widget on load */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Pulsing glow effect for the progress bar */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #00ffff;
   }
-  
-  .widget {
-    padding: 10px;
-    width: 300px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
+  50% {
+    box-shadow: 0 0 20px #00ffff;
   }
-  
-  .block {
-    margin-bottom: 15px;
+  100% {
+    box-shadow: 0 0 10px #00ffff;
   }
-  
-  .progress {
-    background: #333;
-    border-radius: 6px;
-    overflow: hidden;
-    height: 20px;
-    margin: 5px 0;
-  }
-  
-  .bar {
-    height: 100%;
-    background: #ffcc00;
-    width: 0;
-    transition: width 0.4s ease;
-  }
-  
+}
+
+/* Shimmer animation for the progress bar highlight */
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
